@@ -1,2 +1,375 @@
 # Library-Management-System
-• Developed a Library Management which Enables the User to Either Read Books or Write one with An Basic ChatBot With The Aid Of Tkinter, Python And MySQL
+
+from tkinter import *
+from tkinter import ttk
+from tkinter.filedialog import asksaveasfile
+from tkinter.filedialog import askopenfile
+from tkinter import messagebox
+import mysql.connector as sq
+#function for chatting window
+def chat():
+	root=Tk()
+	root["bg"]="black"
+	def send():
+		send="You => "+e.get("1.0","end-1c")
+		txt.insert(END,"\n"+send)
+		if (e.get("1.0","end-1c")=="hello"):
+			txt.insert(END,"\n"+"Bot => hi")
+		elif(e.get("1.0","end-1c")=="hi"):
+			txt.insert(END,"\n"+"Bot => hello")
+		elif(e.get("1.0","end-1c")=="how are you"):
+			txt.insert(END,"\n"+"Bot => I'm fine ")
+		else:
+			txt.insert(END,"\n"+"Bot=> sorry i didn't get")
+		e.delete("0.0",END)
+	txt=Text(root,height=10,width=50,bg="light slate grey")
+	txt.grid(row=0,column=0,columnspan=2)
+	e=Text(root,height=5,width=30,bg="sandy brown")
+	e.grid(row=1,column=0)
+	send=Button(root,text="Send",bg="turquoise",activebackground="dark green",command=send)
+	send.grid(row=1,column=1)
+	root.title("Chatbot")
+	
+def aa():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("aa.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )  
+
+def bb():
+    top=Tk()
+sb=Scrollbar(top)
+sb.pack(side=RIGHT,fill=Y)
+mylist=Listbox(top,height=1366,width=768,font=('Times New Roman','20'),yscrollcommand=sb.set)
+    f=open("bb.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )  
+
+def cc():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("cc.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )  
+
+def dd():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("dd.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview ) 
+
+def ee():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("ee.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview ) 
+
+def ff():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("ff.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )  
+
+def gg():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("gg.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )   
+
+def hh():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("hh.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )  
+
+def ii():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("ii.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview ) 
+
+def jj():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("jj.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )
+
+def kk():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("kk.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )
+
+def ll():
+    top = Tk()
+sb = Scrollbar(top)
+sb.pack(side = RIGHT, fill = Y)
+mylist = Listbox(top,height=1366,width=768,font=('Times New Roman','20'), yscrollcommand = sb.set )
+    f=open("ll.txt",'r')
+    x=f.readlines()
+    for line in x:
+mylist.insert(END, str(line))
+
+mylist.pack( side = LEFT )
+sb.config( command = mylist.yview )
+#function for showing books in adventures books 
+def w11():
+	master=Tk()
+	master.title("adventures books")
+	master["bg"]="black"
+	Label(master,text="adventure books:",bg="black",fg="beige").pack()
+	Button(master,text="1.The Weeding Date",fg="medium orchid",command=jj).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="2.The Heart Of Darkness",fg="medium orchid",command=kk).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="3.The Other Side Of Midnight",fg="medium orchid",command=ll).pack()
+#function for showing books in horror books	
+def w10():
+	master=Tk()
+	master.title("horror books")
+	master["bg"]="black"
+	Label(master,text="horror books:",bg="black",fg="beige").pack()
+	Button(master,text="1.The Good Indians",fg="orange red",command=gg).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="2.Tarzan Of The Apes",fg="orange red",command=hh).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="3.Moby Dick",fg="orange red",command=ii).pack()
+#function for showing books in romantic books
+def w9():
+	master=Tk()
+	master.title("romantic books")
+	master["bg"]="black"
+	Label(master,text="romantic books:",bg="black",fg="beige").pack()
+	Button(master,text="1.The Proposal",fg="hot pink",command=dd).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="2.The Hating Game",fg="hot pink",command=ee).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="3. Mexican Gothic",fg="hot pink",command=ff).pack()
+#function for showing books in fictional books
+def w8():
+	master=Tk()
+	master["bg"]="black"
+	master.title("fictional books")
+	Label(master,text="fictional books:",bg="black",fg="beige").pack()
+	Button(master,text="1.Time Machine Tales",fg="indianred",command=aa).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="2.David Lodge",fg="indianred",command=bb).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="3.Blood Thirst 100",fg="indianred",command=cc).pack()
+
+def submit():
+             messagebox.showinfo("  ","Book will be added within a week \n if available ")
+#function for suggestion from the user of adding a book		
+def add():
+	master=Tk()
+	book_name=StringVar()
+	author_name=StringVar()
+	global e4
+	global e5
+	Label(master,text="BOOK NAME:").pack()
+	e4=Entry(master,textvariable=book_name)
+	e4.pack()
+	Label(master,text="AUTHOR'S NAME:").pack()
+	e5=Entry(master,textvariable=author_name)
+	e5.pack()
+	Button(master,text="SUBMIT",command=submit).pack(side="bottom")
+#function for reading section 
+def w7():
+	master=Tk()
+	master.title("Reading section")
+	master["bg"]="black"
+	x="WELCOME TO THE READING SECTION"
+	Label(master,text=x,bg="black", fg="beige").pack()
+	Label(master,text="categories of books:",bg="black",fg="beige").pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="FICTIONAL",fg="indianred",command=w8).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="ROMANTIC",fg="hot pink",command=w9).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="HORROR",fg="orange red",command=w10).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="ADVENTURE",fg="medium orchid",command=w11).pack()
+            Label(master,text="Want any book to be added...click on the button given above:").pack(side="bottom")
+	Button(master,text="Add book +",command=add).pack(side="bottom")
+#function for saving a file	
+def w6():
+		g=text.get("1.0", "end-1c")
+		files = [('All Files', '.'), ('Python Files', '.py'),
+		('Text Document', '.txt')] 
+		file = asksaveasfile(initialfile="Untitled.txt",filetypes = files, defaultextension = ".txt") 
+		file.write(g)
+#function for opening a file		
+def w5():
+        file = askopenfile(defaultextension=".txt",filetypes=[("All Files",".*"),("Text Documents",".txt"),("Python Files",".py")]) 
+        for c in file:
+	text.delete("0.0",END)
+	text.insert(END,c)
+	
+def w4():
+    global top 
+    top=Tk()
+    global text
+    text=Text(top)
+text.pack()
+menubar=Menu(top)
+    file=Menu(menubar,tearoff=0)
+file.add_command(label="open",
+    command=w5)
+file.add_command(label="save",command=w6)
+menubar.add_cascade(label="File",menu=file)
+top.configure(menu=menubar)
+#function for writing section
+def w3():
+        global master
+        master=Tk()
+master.title("Writing section")
+        master["bg"]="black"
+        Label(master,text='WELCOME TO THE WRITING SECTION!\n\n ---write your personal thoughts',bg='black',fg='dark turquoise',font=('Arail Bold',"15")).pack()
+        Button(master,text="start writing  >",fg="salmon",command=w4).pack(side="bottom")
+
+def call_info():
+	x="\n This is an application of writing and reading..with a feature of chatting(with Bot) . \n this application is based upon the hobbies of most of the people."
+	Label(window,text=x,bg="black",fg="beige",font=("Times New Roman","16")).pack()
+#function for information window	
+def info():
+	global window
+	window=Tk()
+	window.title("Info")
+	window["bg"]="black"
+	window.geometry("200x150")
+	Button(window,text="info",bg="black",fg="beige",command=call_info).pack()  
+#function for menu window of the application	
+def w2():
+	messagebox.showinfo("log in","you have log in successfully!")
+	con=sq.connect(host="localhost",user="root",passwd="password",database="details")
+	cur=con.cursor()
+	cur.execute("INSERT INTO info(fullname,dateofbirth,gender,password)VALUES('%s','%s','%s','%s','%s')" %(e1.get(),e2.get(),e3.get(),e4.get()))
+	con.commit()
+	con.close()
+	master= Tk()
+	master.title("login")
+	master['bg']='black'
+	master.geometry('600x400')
+	Button(master,text="WRITING",bg="black",fg="lawn green",height=6,width=20,command=w3).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="READING",bg="black",fg="lawn green",height=6,width=20,command=w7).pack()
+	Label(master,text="\n",bg="black").pack()
+	Button(master,text="CHATTING",bg="black",fg="lawn green",height=6,width=20,command=chat).pack()
+	Button(master,text="•••",bg="black",fg="White",command=info).place(relx=1.0,y=0,anchor="ne")
+	
+#function for sign up window
+def w1():
+	master=Tk()
+	master.title("Sign Up")
+	master['bg']='black'
+	master.geometry('600x400')
+	full_name_var=StringVar()
+	dob_var=StringVar()
+	gender_var=StringVar()
+	password_var=StringVar()
+	global e1
+	global e2
+	global e3
+	global e4
+	l1=Label(master,text=" FULL NAME:",bg='black',fg="lemon chiffon")
+	l1.pack()
+	e1=Entry(master,textvariable=full_name_var)
+	e1.pack()
+	l2=Label(master,text="DATE OF BIRTH:",bg='black',fg="lemon chiffon")
+	l2.pack()
+	e2=Entry(master,textvariable=dob_var)
+	e2.pack()
+	l3=Label(master,text="GENDER:",bg="black",fg="lemon chiffon")
+	l3.pack()
+	e3=Entry(master,textvariable=gender_var)
+	e3.pack()
+	l4=Label(master,text="PASSWORD:",bg="black",fg="lemon chiffon")
+	l4.pack()
+	e4=Entry(master,textvariable=password_var,show="*")
+	e4.pack()
+	Button(master,text="Log In",bg="sky blue",activebackground="dark blue",command=w2).pack(side="bottom")
+#mainloop program	
+root=Tk()
+root.geometry('600x400')
+root.title("Welcome window")
+root['bg']='black'
+x="WELCOME TO THE WORLD OF\nWRITING AND READING \n \n -------with an added feature of chatting(withBot)"
+a=Label(root,text=x,bg='black',fg='white',font=("Times New Roman","24"))
+a.pack()
+Button(root,text="QUIT",command=root.quit,width=6,fg='red',activebackground="red").pack(side="bottom")
+Button(root,text="NEXT : >",fg='dark blue',width=8,activebackground="dark blue",command=w1).pack(side="bottom")
+root.mainloop()
+
